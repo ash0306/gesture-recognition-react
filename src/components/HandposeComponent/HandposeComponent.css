@@ -9,3 +9,7 @@ canvas,Webcam{
     width: 640;
     height: 480;
 }
+
+.gesture-name{
+    font-family:'Courier New', Courier, monospace;
+}

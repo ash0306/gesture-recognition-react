@@ -6,6 +6,11 @@ import Webcam from "react-webcam";
 import { drawHand } from '../utilities';
 import * as fp from 'fingerpose';
 
+import ThumbsDownGesture from '../GestureRecognition/Gestures/ThumbsDown';
+import FistGesture from '../GestureRecognition/Gestures/Fist';
+import ThumbsUpGesture from '../GestureRecognition/Gestures/ThumbsUp';
+import VictoryGesture from '../GestureRecognition/Gestures/Victory';
+
 function HandposeComponent() {
     const webcamRef = useRef(null);
     const canvasRef = useRef(null);
@@ -43,8 +48,10 @@ function HandposeComponent() {
 
             if(hand.length > 0) {
                 const GE = new fp.GestureEstimator([
-                    fp.Gestures.VictoryGesture,
-                    fp.Gestures.ThumbsUpGesture,
+                    ThumbsDownGesture,
+                    FistGesture,
+                    ThumbsUpGesture,
+                    VictoryGesture,
                 ])
 
                 const gesture = await GE.estimate(hand[0].landmarks, 8);
